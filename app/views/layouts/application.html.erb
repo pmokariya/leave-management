@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LeaveApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class="jumbotron"style="background-color: #31b0d5;">
+      <center><h2><strong>Leave Management Solution</strong></h2></center>
+    </div>
+    <div class="jumbotron" style="padding-top: 10px; padding-bottom: 35px;">
+      <h4>
+        <div class="pull-right" id="user_nav">
+          <% if user_signed_in? %>
+            User: <%= current_user.email %> |
+            Role: <%= current_user.role %> |
+            <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+          <% else %>
+            <%= link_to "Sign Up", new_user_registration_path %> | <%= link_to "Sign In", new_user_session_path %>
+          <% end %>
+        </div>
+      </h4>
+    </div>
+
+    <%= yield %>
+  </div>
+</body>
+<div class="container">
+  <footer>
+    <div class="jumbotron"style="background-color: #31b0d5;">
+    </div>  
+  </footer>
+</div>
+</html>

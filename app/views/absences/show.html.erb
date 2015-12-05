@@ -1,0 +1,29 @@
+<div class="container">
+  <!-- <p id="notice"><%#= notice %></p> -->
+  
+  <dl class="dl-horizontal" style="font-size: 16px;">
+    <dt>Reason:</dt>
+    <dd><%= @absence.reason %></dd><br>
+
+    <dt>Date:</dt>
+    <dd><%= @absence.from_date %></dd><br>
+    <%#= @a = @absence.from_date.split("to") %>
+    
+    <!-- <dt>To date:</dt>
+    <dd><%#= @absence.to_date %></dd><br> -->
+
+    <dt>Manager:</dt>
+    <dd><%= User.find(@absence.manager_id).email %></dd><br>
+
+    <% @users_absence = UsersAbsence.find(@absence.id) %>
+    
+    <% if @users_absence.is_approve == false && @absence.reject_msg.present? %>
+      <dt>Reject Message:</dt>
+      <dd><%= @absence.reject_msg %></dd><br>
+    <% end %>
+  </dl>
+  <%# if  current_user.role == "manager"  %>
+    <%#= link_to 'Edit', edit_absence_path(@absence)%> 
+  <%# end %>
+  <h3><strong><%= link_to 'Back', absences_path,:class=>"pull-right" %></strong></h3>
+</div>
