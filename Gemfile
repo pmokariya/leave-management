@@ -44,7 +44,7 @@ group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
-group :development do
+group :production do
   gem 'pg'
 end
 ##for user registration module
