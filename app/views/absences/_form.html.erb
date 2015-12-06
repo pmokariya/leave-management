@@ -36,16 +36,19 @@
   </div>
 <% end %>
 <script type="text/javascript">
-var dateToday = new Date();
-$('#from_date').dateRangePicker({
-  beforeShowDay: $(this).noWeekends,
-  startDate: dateToday,
-  autoClose: true,
-  format: 'DD-MM-YYYY',
-  selectForward: true,
-  minDays: 1,
-  maxDays: 30,
-  showShortcuts: false
+$(document).ready(function () {
+  var dateToday = new Date();
+  $('#from_date').dateRangePicker({
+    beforeShowDay: $(this).noWeekends,
+    startDate: dateToday,
+    autoClose: true,
+    format: 'DD-MM-YYYY',
+    selectForward: true,
+    minDays: 1,
+    maxDays: 30,
+    showShortcuts: false
+  });
+
 });
 
 // $(function() {
@@ -103,8 +106,3 @@ $('#from_date').dateRangePicker({
 //     );
 // });
 </script>
-<style>
-.date-picker-wrapper{
-  width: 415px;
-}
-</style>

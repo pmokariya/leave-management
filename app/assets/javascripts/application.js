@@ -19,5 +19,4 @@
 //= require bootstrap
 //= require daterangepicker
 //= require bootstrap-select.min
-//= require jquery.daterangepicker
 //= require_tree .

@@ -14,7 +14,6 @@
  *= require glDatePicker.default
  *= require bootstrap-select.min
  *= require daterangepicker
- *= require daterangepicker_bootstrap
  *= require_tree .
  *= require_self
  */
