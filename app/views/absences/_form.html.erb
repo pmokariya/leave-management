@@ -35,6 +35,8 @@
     <%= f.submit "Sent Leave Application" ,:class=>"btn btn-info" %>
   </div>
 <% end %>
+<%#= javascript_include_tag "/daterangepicker" %>
+<%= javascript_include_tag('/assets/daterangepicker.js') %>
 <script type="text/javascript">
 $(document).ready(function () {
   var dateToday = new Date();
