@@ -17,15 +17,10 @@
   </div>
 
   <div class="field form-group">
-    <%= f.label :from_date %><br>
-    <%= f.text_field :from_date,:class=>"form-control",:size=>"40", :id=>"from_date" %>
+    <%= f.label :date %><br>
+    <%= f.text_field :date,:class=>"form-control",:size=>"40", :id=>"date" %>
   </div>
   
- <!--  <div class="field form-group">
-    <%#= f.label :to_date %><br>
-    <%#= f.text_field :to_date,:class=>"form-control" ,html: { class: "daterange" } %>
-  </div> -->
-
   <div class="field form-group">
     <%= f.label :manager_id %><br />
     <%= f.collection_select :manager_id, @manager_users,:id,:email, {prompt: "Select a category"}, {class: "form-control"} %>
@@ -35,12 +30,10 @@
     <%= f.submit "Sent Leave Application" ,:class=>"btn btn-info" %>
   </div>
 <% end %>
-<%#= javascript_include_tag "/daterangepicker" %>
-<%= javascript_include_tag('/assets/daterangepicker.js') %>
 <script type="text/javascript">
 $(document).ready(function () {
   var dateToday = new Date();
-  $('#from_date').dateRangePicker({
+  $('#date').dateRangePicker({
     beforeShowDay: $(this).noWeekends,
     startDate: dateToday,
     autoClose: true,
@@ -50,61 +43,5 @@ $(document).ready(function () {
     maxDays: 30,
     showShortcuts: false
   });
-
 });
-
-// $(function() {
-//     $('input[name="absence[from_date]"]').daterangepicker({
-//         // startDate: moment().subtract(29,'days'),
-//         // endDate: moment(),
-//         minDate: dateToday,
-//         // maxDate: $(this).val() + 30,
-//         maxDay: '+30d',
-//         daysOfWeekDisabled: [],
-//         locale: {
-//             format: 'DD/MM/YYYY'
-//         }
-//     });
-// });  
-// $('#from_date').dateRangePicker(configObject);
-
-// .on('changeDate', function(selected){
-    
-// console.log(selected);
-//     // FromEndDate = new Date(selected.date.valueOf());
-//     // FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
-//     // $('.from'+index).datepicker('setEndDate', FromEndDate);
-// }); 
-
-// $('#from_date').click(function(){
-//   var val = $(this).val();
-//   var maxDate =  val + 30
-//   console.log(maxDate);
-//   // $(function() {
-//   //   $('input[name="absence[from_date]"]').daterangepicker({
-//   //     minDate: dateToday,
-//   //     maxDate: val + 30,
-//   //     locale: {
-//   //         format: 'DD/MM/YYYY'
-//   //     }
-//   //   });
-//   // });
-// })
-
-// function getFormatDate(d){
-//     return d.getMonth()+1 + '/' + d.getDate() + '/' + d.getFullYear()
-// }
-
-// $(document).ready(function() {
-//     var minDate = getFormatDate(new Date()),
-//     mdTemp = new Date(),
-//     maxDate = getFormatDate(new Date(mdTemp.setDate(mdTemp.getDate() + 30)));
-
-//     $('#daterange').daterangepicker(
-//     {
-//        minDate: minDate,
-//        maxDate: maxDate
-//     }
-//     );
-// });
 </script>

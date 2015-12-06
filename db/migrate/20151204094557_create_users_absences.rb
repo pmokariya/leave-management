@@ -4,6 +4,7 @@ class CreateUsersAbsences < ActiveRecord::Migration
       t.integer :user_id
       t.integer :absence_id
       t.boolean :is_approve, :default => false
+      t.string  :status
 
       t.timestamps null: false
     end

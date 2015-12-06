@@ -2,8 +2,9 @@ class CreateAbsences < ActiveRecord::Migration
   def change
     create_table :absences do |t|
       t.string :reason
-      t.string :from_date
-      t.string :to_date
+      t.string :date
+      t.string :manager_id
+      t.string :reject_msg
 
       t.timestamps null: false
     end

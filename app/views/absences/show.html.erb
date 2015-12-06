@@ -1,16 +1,10 @@
 <div class="container">
-  <!-- <p id="notice"><%#= notice %></p> -->
-  
   <dl class="dl-horizontal" style="font-size: 16px;">
     <dt>Reason:</dt>
     <dd><%= @absence.reason %></dd><br>
 
     <dt>Date:</dt>
-    <dd><%= @absence.from_date %></dd><br>
-    <%#= @a = @absence.from_date.split("to") %>
-    
-    <!-- <dt>To date:</dt>
-    <dd><%#= @absence.to_date %></dd><br> -->
+    <dd><%= @absence.date %></dd><br>
 
     <dt>Manager:</dt>
     <dd><%= User.find(@absence.manager_id).email %></dd><br>

@@ -2,35 +2,24 @@ class AbsencesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_absence, only: [:show, :edit, :update, :destroy]
 
-  # GET /absences
-  # GET /absences.json
   def index
     @absences = Absence.all
   end
 
-  # GET /absences/1
-  # GET /absences/1.json
   def show
   end
 
-  # GET /absences/new
   def new
     @absence = Absence.new
     @manager_users = User.where(:role=>"manager")
   end
 
-  # GET /absences/1/edit
   def edit
   end
 
-  # POST /absences
-  # POST /absences.json
   def create
-    logger.info("<..................#{params}........>")
-    
     @manager_users = User.where(:role=>"manager")
     @absence = current_user.absences.build(absence_params)  
-    # @absence = Absence.new(absence_params)
     respond_to do |format|
       if @absence.save
         @absence.update_attributes(:user_id=>current_user.id)
@@ -44,8 +33,6 @@ class AbsencesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /absences/1
-  # PATCH/PUT /absences/1.json
   def update
     respond_to do |format|
       if @absence.update(absence_params)
@@ -58,8 +45,6 @@ class AbsencesController < ApplicationController
     end
   end
 
-  # DELETE /absences/1
-  # DELETE /absences/1.json
   def destroy
     @absence.destroy
     respond_to do |format|
@@ -88,12 +73,10 @@ class AbsencesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_absence
       @absence = Absence.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def absence_params
       params.require(:absence).permit!
     end
